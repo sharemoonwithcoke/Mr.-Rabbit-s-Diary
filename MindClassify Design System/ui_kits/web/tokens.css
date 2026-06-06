@@ -1,0 +1,916 @@
+/* UI kit — extra component CSS on top of colors_and_type.css */
+
+* { box-sizing: border-box; }
+
+.app {
+  min-height: 100vh;
+  background: var(--color-cream);
+}
+
+/* ---------- Navbar ---------- */
+.nav {
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav-inner {
+  max-width: 880px; margin: 0 auto; padding: 14px 22px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: 8px; }
+.brand-glyph { font-size: 24px; line-height: 1; }
+.brand-word  { font-family: var(--font-serif); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; color: var(--color-ink); }
+.brand-tag   { font-family: var(--font-mono); font-size: 10.5px; color: var(--color-ink-3); padding: 2px 8px; background: var(--color-honey-soft); color: var(--color-honey-ink); border-radius: 999px; margin-left: 2px; }
+
+.nav-links { display: flex; gap: 4px; }
+.nav-link {
+  padding: 8px 14px; border-radius: var(--r-sm); font-size: 13.5px; font-weight: 600;
+  color: var(--color-ink-2); cursor: pointer; transition: all 0.15s var(--ease-out);
+  background: transparent; border: none; font-family: var(--font-sans);
+}
+.nav-link:hover { background: var(--color-paper-warm); color: var(--color-ink); }
+.nav-link.active { background: var(--color-honey-soft); color: var(--color-honey-ink); }
+
+main {
+  max-width: 880px; margin: 0 auto;
+  padding: 36px 22px 80px;
+}
+
+/* ---------- Page chrome ---------- */
+.page-header { margin-bottom: 24px; }
+.page-header h1 { margin: 0; }
+.page-header .sub { font-size: 14px; color: var(--color-ink-3); margin-top: 6px; line-height: 1.5; }
+.page-header.split { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
+
+/* ---------- Card recipe ---------- */
+.card {
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  padding: 22px;
+}
+
+/* ---------- Form fields ---------- */
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.field label { font-size: 13px; font-weight: 600; color: var(--color-ink); }
+.field label .opt { color: var(--color-ink-4); font-weight: 400; }
+.input, .textarea {
+  width: 100%; box-sizing: border-box;
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-sm); background: var(--color-paper);
+  color: var(--color-ink); font-family: var(--font-sans);
+  font-size: 14px; padding: 11px 14px;
+  outline: none; transition: all 0.18s var(--ease-out);
+}
+.textarea { resize: none; padding: 12px 14px; line-height: 1.55; }
+.input:focus, .textarea:focus { border-color: var(--color-honey); box-shadow: 0 0 0 3px rgba(217,119,6,0.18); }
+.textarea.over { border-color: var(--color-suicidal-ink); }
+.field-meta { display: flex; justify-content: flex-end; font-size: 11px; color: var(--color-ink-3); }
+.field-meta.over { color: var(--color-suicidal-ink); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px;
+  padding: 10px 20px; border-radius: var(--r-sm);
+  border: 1px solid transparent; cursor: pointer;
+  transition: all 0.18s var(--ease-out);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: var(--color-honey); color: white; }
+.btn-primary:hover:not(:disabled) { background: var(--color-honey-hover); }
+.btn-secondary { background: var(--color-paper); color: var(--color-ink); border-color: var(--color-line); }
+.btn-secondary:hover:not(:disabled) { background: var(--color-paper-warm); }
+.btn-ghost { background: transparent; color: var(--color-ink-2); padding: 6px 12px; font-size: 12px; border: 1px solid var(--color-line); }
+.btn-ghost:hover { color: var(--color-ink); background: var(--color-paper-warm); }
+.btn-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+.spinner { width: 14px; height: 14px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- Toasts ---------- */
+.toast {
+  border-radius: var(--r-md); padding: 12px 18px; font-size: 13px;
+  display: flex; align-items: center; gap: 10px;
+}
+.toast.success { background: var(--color-normal-bg); border: 1px solid var(--color-normal-line); color: var(--color-normal-ink); }
+.toast.error   { background: var(--color-suicidal-bg); border: 1px solid var(--color-suicidal-line); color: var(--color-suicidal-ink); }
+.toast.warn    { background: var(--color-anxiety-bg); border: 1px solid var(--color-anxiety-line); color: var(--color-anxiety-ink); }
+
+/* ---------- Result card ---------- */
+.result-card {
+  background: var(--color-paper);
+  border-radius: var(--r-md);
+  border: 1.5px solid;
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+}
+.result-head { display: flex; justify-content: space-between; align-items: center; }
+.result-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-ink-3); margin-bottom: 6px; }
+.result-label { display: flex; align-items: center; gap: 8px; font-family: var(--font-serif); font-weight: 700; font-size: 28px; line-height: 1.1; letter-spacing: -0.01em; }
+.result-conf { text-align: right; }
+.result-conf .v { font-weight: 800; font-size: 22px; line-height: 1; }
+.result-conf .l { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-ink-3); margin-top: 4px; }
+.result-tip {
+  margin: 16px 0;
+  padding: 12px 14px; border-radius: var(--r-sm);
+  font-size: 13px; line-height: 1.55;
+  border: 1px solid;
+}
+.result-tip b { font-weight: 700; }
+.result-bars-head { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-ink-3); margin-bottom: 10px; }
+.bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.bar-row .name { font-size: 12px; color: var(--color-ink-2); width: 140px; flex-shrink: 0; }
+.bar-row .track { flex: 1; height: 6px; background: var(--color-paper-deep); border-radius: 999px; overflow: hidden; }
+.bar-row .fill { height: 6px; border-radius: 999px; transition: width 0.5s var(--ease-out); }
+.bar-row .pct { font-size: 11px; color: var(--color-ink-3); width: 42px; text-align: right; }
+.disclaimer { font-size: 11.5px; color: var(--color-ink-3); font-style: italic; margin-top: 14px; }
+
+/* ---------- Companion card ---------- */
+.companion {
+  background: linear-gradient(135deg, #fdfaf4 0%, #fdf6e3 100%);
+  border: 1px solid var(--color-diary-line);
+  border-radius: var(--r-md);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-sm);
+}
+.companion-head { display: flex; align-items: center; gap: 8px; }
+.companion-head .q { font-size: 18px; line-height: 1; }
+.companion-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-diary-accent); }
+.companion-div { height: 1px; background: rgba(253, 230, 138, 0.55); margin: 12px 0 14px; }
+.companion-text { font-family: var(--font-serif); font-style: italic; font-size: 15.5px; line-height: 1.7; color: var(--color-diary-ink); margin: 0; }
+.companion-sign { font-family: var(--font-hand); font-size: 18px; color: var(--color-diary-accent); text-align: right; margin-top: 10px; }
+
+.companion-skeleton .skel { height: 12px; background: rgba(253, 230, 138, 0.55); border-radius: 4px; margin-bottom: 8px; animation: pulse 1.6s ease-in-out infinite; }
+.companion-skeleton .skel:nth-child(1) { width: 72%; }
+.companion-skeleton .skel:nth-child(2) { width: 84%; }
+.companion-skeleton .skel:nth-child(3) { width: 60%; }
+@keyframes pulse { 0%,100% { opacity: 0.45; } 50% { opacity: 1; } }
+
+/* ---------- Entry card ---------- */
+.entry-card {
+  background: var(--color-paper); border: 1px solid var(--color-line);
+  border-radius: var(--r-md); box-shadow: var(--shadow-sm);
+  padding: 18px 20px; transition: box-shadow 0.18s var(--ease-out);
+}
+.entry-card:hover { box-shadow: var(--shadow-md); }
+.entry-row { display: flex; justify-content: space-between; gap: 16px; }
+.entry-card .title { font-weight: 700; font-size: 15px; color: var(--color-ink); margin: 0 0 4px; }
+.entry-card .preview { font-size: 13.5px; color: var(--color-ink-2); line-height: 1.5; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.entry-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.entry-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--color-line-soft); font-size: 11.5px; color: var(--color-ink-3); }
+.entry-delete { color: var(--color-suicidal-ink); cursor: pointer; background: none; border: none; font-size: 11.5px; font-family: var(--font-sans); }
+.entry-delete:hover { color: var(--color-suicidal-ink); text-decoration: underline; }
+
+/* ---------- Class chip / badge ---------- */
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 11px; border-radius: 999px;
+  font-size: 12px; font-weight: 600;
+  border: 1px solid;
+}
+
+/* ---------- History extras ---------- */
+.history-list { display: flex; flex-direction: column; gap: 14px; }
+.pager { display: flex; justify-content: center; align-items: center; gap: 10px; padding-top: 8px; }
+.pager .page-info { font-size: 12.5px; color: var(--color-ink-2); }
+
+/* ---------- Chat ---------- */
+.chat-wrap { display: flex; flex-direction: column; height: calc(100vh - 200px); min-height: 460px; }
+.chat-thread {
+  flex: 1; overflow-y: auto;
+  background: linear-gradient(180deg, #fdfaf4 0%, #f9fafb 100%);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-lg);
+  padding: 18px;
+}
+.chat-row { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 12px; }
+.chat-row.user { justify-content: flex-end; }
+.chat-avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--color-honey-soft); border: 1px solid var(--color-diary-line); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.chat-bubble { max-width: 72%; padding: 9px 15px; border-radius: 16px; font-size: 13.5px; line-height: 1.55; white-space: pre-wrap; }
+.chat-bubble.bot { background: var(--color-paper); border: 1px solid var(--color-diary-line); color: var(--color-diary-ink); font-family: var(--font-serif); font-style: italic; border-bottom-left-radius: 4px; }
+.chat-bubble.user { background: var(--color-honey); color: white; border-bottom-right-radius: 4px; }
+.chat-typing { display: inline-flex; gap: 4px; padding: 12px 16px; background: var(--color-paper); border: 1px solid var(--color-diary-line); border-radius: 16px; border-bottom-left-radius: 4px; }
+.chat-typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--color-honey); animation: bounce 1s infinite; }
+.chat-typing span:nth-child(2) { animation-delay: 0.15s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes bounce { 0%,80%,100% { transform: translateY(0); opacity: 0.5; } 40% { transform: translateY(-4px); opacity: 1; } }
+
+.chat-input { display: flex; gap: 10px; align-items: stretch; margin-top: 14px; }
+.chat-input .textarea { flex: 1; min-height: 52px; resize: none; padding: 13px 16px; }
+.chat-send { flex-shrink: 0; align-self: stretch; padding: 0 22px; }
+.chat-footnote { text-align: center; font-size: 11.5px; color: var(--color-ink-3); margin-top: 10px; }
+.chat-footnote strong { color: var(--color-suicidal-ink); }
+
+/* ---------- Mood trend chart ---------- */
+.mood-chart h3 { margin: 0 0 16px; }
+.bars-stack { display: flex; align-items: flex-end; gap: 14px; height: 180px; padding: 0 6px; }
+.bars-stack .day { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.bars-stack .col { width: 100%; max-width: 38px; display: flex; flex-direction: column; border-radius: 8px 8px 0 0; overflow: hidden; }
+.bars-stack .seg { width: 100%; }
+.bars-stack .date { font-size: 10.5px; color: var(--color-ink-3); }
+.mood-legend { display: flex; flex-wrap: wrap; gap: 12px 18px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--color-line-soft); }
+.mood-legend .leg { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--color-ink-2); }
+.mood-legend .dot { width: 10px; height: 10px; border-radius: 3px; }
+
+/* ---------- Demo banner ---------- */
+.demo-banner { background: var(--color-anxiety-bg); border: 1px solid var(--color-anxiety-line); border-radius: var(--r-sm); padding: 8px 12px; font-size: 11.5px; color: var(--color-anxiety-ink); margin-bottom: 14px; }
+
+/* ============================================================
+   Diary spread — the page IS the surface (no cards)
+   ============================================================ */
+
+.diary-spread {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 8px 120px;
+  position: relative;
+}
+
+/* very subtle paper grain via repeating gradient + spot vignette */
+.diary-spread::before {
+  content: "";
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at top, rgba(217, 119, 6, 0.05), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(180, 83, 9, 0.04), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.diary-spread > * { position: relative; z-index: 1; }
+
+.diary-date {
+  font-family: var(--font-hand);
+  color: var(--color-honey-ink);
+  font-size: 22px;
+  text-align: right;
+  margin: 6px 4px 26px;
+  letter-spacing: 0.01em;
+  opacity: 0.85;
+}
+
+/* ---------- One entry block: user words + diary reply ---------- */
+.diary-entry {
+  position: relative;
+  padding: 0 14px 0 28px;        /* left margin for the class ribbon */
+  margin-bottom: 56px;
+}
+
+/* left-margin class ribbon — thin colored stroke, like a marginalia tab */
+.diary-ribbon {
+  position: absolute;
+  left: 0; top: 6px; bottom: 36px;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--color-line);
+  transition: background 0.6s var(--ease-soft);
+}
+
+.diary-mine {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--color-ink);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.diary-title-mine {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+  color: var(--color-ink);
+}
+
+/* the "felt" marginalia — small handwritten note under the entry */
+.diary-felt {
+  font-family: var(--font-hand);
+  font-size: 17px;
+  margin-top: 12px;
+}
+
+/* ---------- Ink bleed: when user submits, words seep into the page slowly ---------- */
+.diary-bleed {
+  animation: inkBleed 2200ms var(--ease-soft);
+}
+@keyframes inkBleed {
+  0%   { filter: blur(0);     opacity: 1;    transform: translateY(0); }
+  22%  { filter: blur(2.8px); opacity: 0.62; letter-spacing: 0.012em; }
+  55%  { filter: blur(1.4px); opacity: 0.82; }
+  100% { filter: blur(0);     opacity: 1;    transform: translateY(0); letter-spacing: normal; }
+}
+
+/* water bloom — a soft halo that seeps outward and dissipates slowly */
+.diary-bloom {
+  position: relative;
+}
+.diary-bloom::after {
+  content: "";
+  position: absolute;
+  inset: -22px -34px;
+  border-radius: 40px;
+  background:
+    radial-gradient(ellipse at 28% 38%, rgba(217, 119, 6, 0.16), transparent 60%),
+    radial-gradient(ellipse at 70% 60%, rgba(180, 83, 9, 0.10), transparent 65%);
+  pointer-events: none;
+  opacity: 0;
+  animation: bloom 3200ms cubic-bezier(0.16, 0.6, 0.3, 1) forwards;
+}
+@keyframes bloom {
+  0%   { opacity: 0;    transform: scale(0.55); filter: blur(4px); }
+  25%  { opacity: 0.85; filter: blur(8px); }
+  60%  { opacity: 0.5;  filter: blur(12px); }
+  100% { opacity: 0;    transform: scale(1.5);  filter: blur(16px); }
+}
+
+/* ---------- Diary reply — italic serif, writes itself in ---------- */
+.diary-reply {
+  margin-top: 28px;
+  padding-left: 18px;
+  border-left: 1px solid var(--color-diary-line);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--color-diary-ink);
+  letter-spacing: 0.005em;
+  animation: replyIn 1400ms var(--ease-soft);
+}
+@keyframes replyIn {
+  from { border-left-color: transparent; }
+  to   { border-left-color: var(--color-diary-line); }
+}
+
+.diary-reply-mark {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-diary-accent);
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* each word soaks in like ink into damp paper: starts watery, light and
+   blurred, then slowly darkens and sharpens. Long durations + heavy overlap
+   between adjacent words make it read as a continuous bloom, not word-by-word. */
+.ink-word {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(7px);
+  transform: translateY(3px) scale(1.06);
+  color: #9AA1AC;                 /* watery, half-dissolved ink */
+  transition:
+    opacity 1500ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    filter 1700ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 1700ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    color 1900ms ease-out;
+}
+.ink-word.shown {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+  color: var(--color-diary-ink);  /* fully settled */
+}
+
+.diary-reply-sign {
+  font-family: var(--font-hand);
+  font-size: 19px;
+  color: var(--color-diary-accent);
+  text-align: right;
+  margin-top: 14px;
+}
+@keyframes feltIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- The composer — looks like writing on the page ---------- */
+.diary-composer {
+  padding: 0 14px 0 28px;
+  position: relative;
+}
+.diary-composer-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--color-ink);
+  resize: none;
+  outline: none;
+  padding: 0;
+  caret-color: var(--color-honey);
+  min-height: 110px;
+}
+.diary-composer-input::placeholder {
+  color: var(--color-ink-4);
+  font-style: italic;
+}
+
+.diary-title-input {
+  width: 100%; box-sizing: border-box;
+  border: none; background: transparent;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  outline: none;
+  margin-bottom: 8px;
+  padding: 0;
+}
+.diary-title-input::placeholder {
+  color: var(--color-ink-4);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.diary-composer-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--color-ink-3);
+}
+.diary-composer-foot kbd {
+  font-family: var(--font-mono);
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 11px;
+  color: var(--color-ink-2);
+}
+
+.diary-submit {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--color-honey);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.18s var(--ease-out);
+}
+.diary-submit:hover:not(:disabled) { background: var(--color-honey-hover); }
+.diary-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ---------- A short ornament between entries ---------- */
+.diary-fleuron {
+  text-align: center;
+  margin: 0 0 36px;
+  color: var(--color-line);
+  font-size: 18px;
+  letter-spacing: 0.5em;
+}
+
+.diary-fleuron.thin {
+  margin: 28px 0 28px;
+  letter-spacing: 0.8em;
+  font-size: 14px;
+  color: var(--color-line);
+}
+
+/* ---------- History opening ---------- */
+.diary-history-head {
+  text-align: center;
+  margin: 8px 0 36px;
+}
+.diary-history-head h1 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 36px;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--color-ink);
+}
+.diary-history-head .sub {
+  font-family: var(--font-hand);
+  font-size: 20px;
+  color: var(--color-honey-ink);
+  margin-top: 2px;
+}
+
+.diary-empty-hint {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-ink-3);
+  font-size: 14px;
+  margin: 56px 0;
+}
+
+/* ---------- Follow-up turns (the "hidden chat" inside an entry) ---------- */
+.diary-followups {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.diary-followup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.diary-followup-user {
+  font-family: var(--font-sans);
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--color-ink);
+  position: relative;
+  padding-left: 22px;
+  white-space: pre-wrap;
+}
+.diary-followup-user::before {
+  content: "\203A";
+  position: absolute;
+  left: 0; top: -2px;
+  font-size: 22px;
+  color: var(--color-ink-4);
+  line-height: 1;
+}
+.diary-followup-reply {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 17.5px;
+  line-height: 1.7;
+  color: var(--color-diary-ink);
+}
+
+/* ---------- Follow-up button (dashed, quiet — a quiet invitation) ---------- */
+.diary-followup-btn {
+  margin-top: 22px;
+  background: transparent;
+  border: 1px dashed var(--color-diary-line);
+  color: var(--color-diary-accent);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.18s var(--ease-out);
+}
+.diary-followup-btn:hover {
+  background: var(--color-honey-soft);
+  border-style: solid;
+  border-color: var(--color-honey);
+}
+
+/* ---------- Inline follow-up composer ---------- */
+.diary-followup-form {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.diary-followup-input {
+  width: 100%; box-sizing: border-box;
+  border: 1px solid var(--color-diary-line);
+  background: var(--color-paper);
+  border-radius: var(--r-sm);
+  padding: 10px 14px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-ink);
+  resize: none;
+  outline: none;
+  transition: all 0.18s var(--ease-out);
+}
+.diary-followup-input:focus {
+  border-color: var(--color-honey);
+  box-shadow: 0 0 0 3px rgba(217,119,6,0.15);
+}
+.diary-followup-actions {
+  display: flex; justify-content: flex-end; gap: 10px; align-items: center;
+  font-size: 11.5px;
+  color: var(--color-ink-3);
+}
+.diary-followup-actions kbd {
+  font-family: var(--font-mono);
+  background: var(--color-paper); border: 1px solid var(--color-line);
+  border-radius: 4px; padding: 1px 5px; font-size: 10.5px;
+}
+.diary-followup-cancel {
+  background: transparent; border: none;
+  font-family: var(--font-sans); font-size: 12px;
+  color: var(--color-ink-3); cursor: pointer; padding: 6px 10px;
+}
+.diary-followup-cancel:hover { color: var(--color-ink-2); }
+
+/* ---------- "The diary considers…" — quiet between submit and reply ---------- */
+.diary-pause {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding-left: 18px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--color-ink-3);
+  animation: feltIn 900ms var(--ease-soft);
+}
+.diary-pause-dots {
+  display: inline-flex; gap: 4px;
+}
+.diary-pause-dots span {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--color-honey);
+  opacity: 0.5;
+  animation: bounce 1.4s infinite;
+}
+.diary-pause-dots span:nth-child(2) { animation-delay: 0.2s; }
+.diary-pause-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* ---------- Mood calendar (History) ---------- */
+.cal {
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 20px 22px 22px;
+  margin-bottom: 40px;
+}
+.cal-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px;
+}
+.cal-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+.cal-nav {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--color-line);
+  background: var(--color-paper);
+  color: var(--color-ink-2);
+  font-size: 18px; line-height: 1;
+  cursor: pointer;
+  transition: all 0.15s var(--ease-out);
+  display: flex; align-items: center; justify-content: center;
+}
+.cal-nav:hover { background: var(--color-paper-warm); color: var(--color-ink); border-color: var(--color-ink-4); }
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 7px;
+}
+.cal-weekdays { margin-bottom: 8px; }
+.cal-weekday {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-4);
+  padding-bottom: 2px;
+}
+
+.cal-cell {
+  aspect-ratio: 1 / 1;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: var(--font-sans);
+  cursor: default;
+  transition: all 0.16s var(--ease-out);
+  padding: 0;
+}
+.cal-cell.empty { border: none; }
+.cal-cell .cal-num {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink-4);
+  line-height: 1;
+}
+.cal-cell.has { cursor: pointer; box-shadow: var(--shadow-xs); }
+.cal-cell.has .cal-num { color: inherit; font-weight: 700; }
+.cal-cell.has:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+.cal-cell.selected { border-width: 1.5px; box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.cal-cell.today .cal-num { text-decoration: underline; text-underline-offset: 3px; }
+
+.cal-dots { display: flex; gap: 3px; height: 6px; align-items: center; }
+.cal-dot { width: 5px; height: 5px; border-radius: 50%; }
+
+.cal-legend {
+  display: flex; flex-wrap: wrap; gap: 8px 14px;
+  margin-top: 18px; padding-top: 16px;
+  border-top: 1px solid var(--color-line-soft);
+}
+.cal-leg {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; color: var(--color-ink-2);
+}
+.cal-leg-dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
+
+/* ---------- Selected-day entries below the calendar ---------- */
+.cal-day-entries { margin-top: 8px; }
+.cal-day-label {
+  font-family: var(--font-hand);
+  font-size: 22px;
+  color: var(--color-honey-ink);
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+/* ---------- Envelope (a day's entry, sealed) ---------- */
+.env-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.env {
+  max-width: 560px;
+  margin: 0 auto;
+  width: 100%;
+  perspective: 1100px;
+}
+
+/* The lid = the closed envelope face: big triangular flap + wax seal + address */
+.env-lid {
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 190px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+  padding: 134px 20px 24px;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  transition: box-shadow 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+.env-lid:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+
+/* the triangular flap (decorative, sits over the top of the closed face) */
+.env-flap {
+  position: absolute;
+  top: 0; left: -1px; right: -1px;
+  height: 102px;
+  border: 1px solid;
+  border-top: none;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  z-index: 2;
+  box-shadow: 0 1px 0 rgba(146, 100, 64, 0.06);
+}
+
+/* the wax seal at the flap's tip */
+.env-seal {
+  position: absolute;
+  left: 50%; top: 96px;
+  transform: translate(-50%, -50%);
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 3;
+  box-shadow: 0 2px 5px rgba(146, 100, 64, 0.28), inset 0 1px 1px rgba(255,255,255,0.25);
+}
+.env-seal::after {
+  content: "";
+  position: absolute; inset: 4px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 253, 246, 0.35);
+}
+.env-lid:hover .env-seal { transform: translate(-50%, -50%) scale(1.04); transition: transform 0.2s var(--ease-out); }
+
+/* the address strip beneath the flap */
+.env-addr {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.env-date {
+  font-family: var(--font-hand);
+  font-size: 21px;
+  color: var(--color-ink);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.env-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--color-ink-2);
+}
+.env-hint {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.72;
+  margin-top: 2px;
+}
+
+/* ---------- Opened envelope: compact header + the letter ---------- */
+.env-open {
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  background: var(--color-paper);
+  opacity: 0;
+  transform: translateY(-8px) scaleY(0.99);
+  transform-origin: top center;
+  transition: opacity 0.5s var(--ease-soft), transform 0.5s var(--ease-soft);
+}
+.env-open.shown {
+  opacity: 1;
+  transform: none;
+}
+.env-openhdr {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 16px;
+  border: none;
+  border-bottom: 1px solid;
+  cursor: pointer;
+  text-align: left;
+}
+.env-seal-sm {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(146, 100, 64, 0.25), inset 0 1px 1px rgba(255,255,255,0.25);
+}
+.env-openhdr-text { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
+.env-openhdr .env-date { font-size: 19px; }
+.env-openhdr .env-title { text-align: left; }
+.env-reseal {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.env-openhdr:hover .env-reseal { opacity: 1; }
+
+.env-letter {
+  padding: 24px 26px 22px;
+}
+.env-letter .diary-entry { margin-bottom: 0; padding-right: 0; }
+
+/* ---------- 988 safety panel (replaces the chip when class === Suicidal) ---------- */
+.diary-safety {
+  margin-top: 24px;
+  padding: 14px 18px;
+  background: var(--color-suicidal-bg);
+  border: 1px solid var(--color-suicidal-line);
+  border-radius: var(--r-md);
+  color: var(--color-suicidal-ink);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.diary-safety strong { font-weight: 800; }
+
+/* ---------- Stacks ---------- */
+.stack-6 > * + * { margin-top: 24px; }
+.stack-4 > * + * { margin-top: 16px; }
+.stack-3 > * + * { margin-top: 12px; }
+
+
+/* ---------- Stacks ---------- */
+.stack-6 > * + * { margin-top: 24px; }
+.stack-4 > * + * { margin-top: 16px; }
+.stack-3 > * + * { margin-top: 12px; }
+

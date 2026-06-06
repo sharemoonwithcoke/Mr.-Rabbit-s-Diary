@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-cream); }
+  body { padding: 18px 24px; font-family: var(--font-sans); }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .label { font-size: 13px; font-weight: 600; color: var(--color-ink); }
+  .label .opt { color: var(--color-ink-4); font-weight: 400; }
+  .input {
+    width: 100%; box-sizing: border-box;
+    border: 1px solid var(--color-line); border-radius: var(--r-sm);
+    padding: 11px 14px; font-size: 14px; background: var(--color-paper);
+    color: var(--color-ink); font-family: var(--font-sans);
+    transition: all 0.2s var(--ease-out); outline: none;
+  }
+  .input:focus { border-color: var(--color-honey); box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.18); }
+  .textarea {
+    width: 100%; box-sizing: border-box;
+    border: 1px solid var(--color-honey); border-radius: var(--r-sm);
+    padding: 12px 14px; font-size: 14px; background: var(--color-paper);
+    color: var(--color-ink); font-family: var(--font-sans);
+    resize: none; outline: none;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.18);
+  }
+  .count { font-size: 11px; color: var(--color-ink-3); text-align: right; }
+  .grid { display: flex; gap: 14px; }
+  .grid > * { flex: 1; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="field">
+      <div class="label">Title <span class="opt">(optional)</span></div>
+      <input class="input" placeholder="Give this entry a title…">
+    </div>
+    <div class="field">
+      <div class="label">How are you feeling today?</div>
+      <textarea class="textarea" rows="2">Some days the light feels far away.</textarea>
+      <div class="count">36 / 10,000</div>
+    </div>
+  </div>
+</body>
+</html>

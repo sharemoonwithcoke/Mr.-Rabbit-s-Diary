@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-cream); }
+  body { padding: 22px 26px; font-family: var(--font-sans); }
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .btn {
+    padding: 10px 20px; border-radius: var(--r-sm); font-size: 14px;
+    font-weight: 600; cursor: pointer; border: 1px solid transparent;
+    font-family: var(--font-sans); transition: all 0.2s var(--ease-out);
+  }
+  .primary { background: var(--color-honey); color: white; }
+  .primary:hover { background: var(--color-honey-hover); }
+  .secondary { background: var(--color-paper); color: var(--color-ink); border-color: var(--color-line); }
+  .secondary:hover { background: var(--color-paper-warm); }
+  .ghost { background: transparent; color: var(--color-ink-2); border-color: var(--color-line-soft); }
+  .disabled { background: var(--color-honey); color: white; opacity: 0.5; cursor: not-allowed; }
+  .pill { background: var(--color-honey-soft); color: var(--color-honey-ink); border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 700; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <button class="btn primary">Analyse &amp; Save</button>
+    <button class="btn secondary">Refresh</button>
+    <button class="btn ghost">New chat</button>
+    <button class="btn disabled" disabled>Analysing…</button>
+    <span class="pill">🪶 Companion</span>
+  </div>
+</body>
+</html>

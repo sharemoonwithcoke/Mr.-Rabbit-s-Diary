@@ -1,0 +1,48 @@
+# Environment files — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Build output
+frontend/build/
+mobile/.expo/
+mobile/dist/
+
+# Trained model files (large — share via cloud storage)
+model_service/saved_models/*.pkl
+model_service/saved_models/checkpoint/
+
+# Training data (place manually in this folder)
+model_service/data/*.csv
+model_service/data/*.tsv
+
+# Generated analysis output
+model_service/plots/*.png
+model_service/plots/*.txt
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+node_modules/
+*.dll
+data/mental_health.csv
+model_service/data/mental_health.csv
+model_service/saved_models/

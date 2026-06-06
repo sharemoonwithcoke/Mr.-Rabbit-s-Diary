@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-cream); }
+  body { padding: 18px 22px; font-family: var(--font-sans); }
+  .row { display: flex; gap: 10px; }
+  .pair {
+    flex: 1; border-radius: var(--r-md); overflow: hidden;
+    border: 1px solid var(--color-line); display: flex; flex-direction: column;
+    min-height: 110px;
+  }
+  .pair .raw { flex: 1; padding: 10px 12px; color: white; font-size: 11px; font-family: var(--font-mono); display: flex; align-items: flex-end; }
+  .pair .cozy { flex: 1; padding: 10px 12px; font-size: 11px; font-family: var(--font-mono); display: flex; flex-direction: column; justify-content: space-between; }
+  .pair .name { font-family: var(--font-sans); font-size: 12px; font-weight: 700; }
+  .pair .arrow { font-size: 13px; font-family: var(--font-sans); opacity: 0.6; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="pair">
+      <div class="raw" style="background:var(--color-normal-raw)">#4CAF50</div>
+      <div class="cozy" style="background:var(--color-normal-bg); color:var(--color-normal-ink)">
+        <div class="name">Normal</div>
+        <div class="arrow">↓ #5B8C6A</div>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="raw" style="background:var(--color-depression-raw)">#2196F3</div>
+      <div class="cozy" style="background:var(--color-depression-bg); color:var(--color-depression-ink)">
+        <div class="name">Depression</div>
+        <div class="arrow">↓ #6B8FB5</div>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="raw" style="background:var(--color-suicidal-raw)">#F44336</div>
+      <div class="cozy" style="background:var(--color-suicidal-bg); color:var(--color-suicidal-ink)">
+        <div class="name">Suicidal</div>
+        <div class="arrow">↓ #C75440</div>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="raw" style="background:var(--color-anxiety-raw)">#FF9800</div>
+      <div class="cozy" style="background:var(--color-anxiety-bg); color:var(--color-anxiety-ink)">
+        <div class="name">Anxiety</div>
+        <div class="arrow">↓ #D17A1E</div>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="raw" style="background:var(--color-stress-raw)">#9C27B0</div>
+      <div class="cozy" style="background:var(--color-stress-bg); color:var(--color-stress-ink)">
+        <div class="name">Stress</div>
+        <div class="arrow">↓ #9A6F95</div>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="raw" style="background:var(--color-bipolar-raw)">#00BCD4</div>
+      <div class="cozy" style="background:var(--color-bipolar-bg); color:var(--color-bipolar-ink)">
+        <div class="name">Bipolar</div>
+        <div class="arrow">↓ #4E9499</div>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="raw" style="background:var(--color-personality-raw)">#795548</div>
+      <div class="cozy" style="background:var(--color-personality-bg); color:var(--color-personality-ink)">
+        <div class="name">Personality</div>
+        <div class="arrow">↓ #8B6D4F</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

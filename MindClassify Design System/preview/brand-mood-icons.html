@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-cream); }
+  body { padding: 22px 24px; font-family: var(--font-sans); }
+  .grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+  .cell { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .icon {
+    width: 54px; height: 54px;
+    border-radius: 16px;
+    border: 1px solid;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .name { font-size: 11px; font-weight: 600; color: var(--color-ink-2); text-align: center; line-height: 1.25; }
+  svg { display: block; }
+</style>
+</head>
+<body>
+  <div class="grid">
+
+    <!-- Normal — a small sprig / new growth -->
+    <div class="cell">
+      <div class="icon" style="background:var(--color-normal-bg); border-color:var(--color-normal-line)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-normal-ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20 V8" />
+          <path d="M12 13 Q8 12 7 8 Q11 8.5 12 12" fill="var(--color-normal-ink)" fill-opacity="0.14"/>
+          <path d="M12 11 Q16 10 17 6 Q13 6.5 12 10" fill="var(--color-normal-ink)" fill-opacity="0.14"/>
+        </svg>
+      </div>
+      <div class="name">Normal</div>
+    </div>
+
+    <!-- Depression — single heavy droplet -->
+    <div class="cell">
+      <div class="icon" style="background:var(--color-depression-bg); border-color:var(--color-depression-line)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-depression-ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5 C8 11 7 14 7 16 a5 5 0 0 0 10 0 c0 -2 -1 -5 -5 -11Z" fill="var(--color-depression-ink)" fill-opacity="0.14"/>
+        </svg>
+      </div>
+      <div class="name">Depression</div>
+    </div>
+
+    <!-- Suicidal — life preserver ring (988 lifeline) -->
+    <div class="cell">
+      <div class="icon" style="background:var(--color-suicidal-bg); border-color:var(--color-suicidal-line)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-suicidal-ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8" fill="var(--color-suicidal-ink)" fill-opacity="0.12"/>
+          <circle cx="12" cy="12" r="3.2" />
+          <path d="M12 4 V7.5" /><path d="M12 16.5 V20" />
+          <path d="M4 12 H7.5" /><path d="M16.5 12 H20" />
+        </svg>
+      </div>
+      <div class="name">Suicidal</div>
+    </div>
+
+    <!-- Anxiety — concentric ripples / a racing pulse -->
+    <div class="cell">
+      <div class="icon" style="background:var(--color-anxiety-bg); border-color:var(--color-anxiety-line)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-anxiety-ink)" stroke-width="1.7" stroke-linecap="round">
+          <circle cx="12" cy="12" r="2" fill="var(--color-anxiety-ink)"/>
+          <path d="M7.5 12 a 4.5 4.5 0 0 1 9 0" />
+          <path d="M4.5 12 a 7.5 7.5 0 0 1 15 0" opacity="0.55"/>
+        </svg>
+      </div>
+      <div class="name">Anxiety</div>
+    </div>
+
+    <!-- Stress — a tight knot / compressed coil -->
+    <div class="cell">
+      <div class="icon" style="background:var(--color-stress-bg); border-color:var(--color-stress-line)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-stress-ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 8 Q12 5 19 8 Q12 11 5 14 Q12 17 19 14" />
+        </svg>
+      </div>
+      <div class="name">Stress</div>
+    </div>
+
+    <!-- Bipolar — wave with peak and trough -->
+    <div class="cell">
+      <div class="icon" style="background:var(--color-bipolar-bg); border-color:var(--color-bipolar-line)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-bipolar-ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12 Q8 4 12 12 T20 12" />
+        </svg>
+      </div>
+      <div class="name">Bipolar</div>
+    </div>
+
+    <!-- Personality Disorder — open spiral, shifting identity -->
+    <div class="cell">
+      <div class="icon" style="background:var(--color-personality-bg); border-color:var(--color-personality-line)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-personality-ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 12 m -1 0 a 1 1 0 1 1 2 0 a 2.5 2.5 0 1 1 -4.5 1 a 5 5 0 1 1 9 -2 a 7.5 7.5 0 1 1 -13.5 3" />
+        </svg>
+      </div>
+      <div class="name">Personality</div>
+    </div>
+
+  </div>
+</body>
+</html>

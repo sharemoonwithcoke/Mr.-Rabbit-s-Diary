@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-cream); }
+  body { padding: 20px 24px; font-family: var(--font-sans); }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 5px 13px 5px 11px; border-radius: 999px;
+    font-size: 12px; font-weight: 600;
+    border: 1px solid;
+  }
+  .chip .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="chip" style="background: var(--color-normal-bg);     color: var(--color-normal-ink);     border-color: var(--color-normal-line);"><span class="dot" style="background: var(--color-normal-ink)"></span>Normal</span>
+    <span class="chip" style="background: var(--color-depression-bg); color: var(--color-depression-ink); border-color: var(--color-depression-line);"><span class="dot" style="background: var(--color-depression-ink)"></span>Depression</span>
+    <span class="chip" style="background: var(--color-suicidal-bg);   color: var(--color-suicidal-ink);   border-color: var(--color-suicidal-line);"><span class="dot" style="background: var(--color-suicidal-ink)"></span>Suicidal</span>
+    <span class="chip" style="background: var(--color-anxiety-bg);    color: var(--color-anxiety-ink);    border-color: var(--color-anxiety-line);"><span class="dot" style="background: var(--color-anxiety-ink)"></span>Anxiety</span>
+    <span class="chip" style="background: var(--color-stress-bg);     color: var(--color-stress-ink);     border-color: var(--color-stress-line);"><span class="dot" style="background: var(--color-stress-ink)"></span>Stress</span>
+    <span class="chip" style="background: var(--color-bipolar-bg);    color: var(--color-bipolar-ink);    border-color: var(--color-bipolar-line);"><span class="dot" style="background: var(--color-bipolar-ink)"></span>Bipolar</span>
+    <span class="chip" style="background: var(--color-personality-bg);color: var(--color-personality-ink);border-color: var(--color-personality-line);"><span class="dot" style="background: var(--color-personality-ink)"></span>Personality Disorder</span>
+  </div>
+</body>
+</html>

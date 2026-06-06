@@ -1,0 +1,123 @@
+version: "3.9"
+
+services:
+
+  # ── MongoDB ──────────────────────────────────────────────────────────────────
+  mongo:
+    image: mongo:7
+    container_name: mindclassify-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - mindclassify-net
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Python Flask model API (port 5001) ────────────────────────────────────────
+  model_service:
+    build:
+      context: ./model_service
+      dockerfile: Dockerfile
+    container_name: mindclassify-model
+    restart: unless-stopped
+    environment:
+      - PORT=5001
+      - MODEL_TYPE=auto
+    volumes:
+      # data/ is bind-mounted so the CSV you drop in locally is available in-container
+      - ./model_service/data:/app/data
+      - ./model_service/saved_models:/app/saved_models
+      - ./model_service/plots:/app/plots
+    ports:
+      - "5001:5001"
+    networks:
+      - mindclassify-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # ── Gradio interactive demo (port 7860) ───────────────────────────────────────
+  demo:
+    build:
+      context: ./model_service
+      dockerfile: Dockerfile
+    container_name: mindclassify-demo
+    restart: unless-stopped
+    command: python demo.py --port 7860 --server-name 0.0.0.0
+    environment:
+      - MODEL_TYPE=auto
+    volumes:
+      - ./model_service/data:/app/data
+      - ./model_service/saved_models:/app/saved_models
+    ports:
+      - "7860:7860"
+    networks:
+      - mindclassify-net
+    depends_on:
+      model_service:
+        condition: service_healthy
+
+  # ── Node.js / Express backend (port 5000) ────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: mindclassify-backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      # These override .env for correct Docker networking
+      - PORT=5000
+      - MONGO_URI=mongodb://mongo:27017/mindclassify
+      - MODEL_SERVICE_URL=http://model_service:5001
+      - FRONTEND_URL=http://localhost:3000
+    ports:
+      - "5000:5000"
+    networks:
+      - mindclassify-net
+    depends_on:
+      mongo:
+        condition: service_healthy
+      model_service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:5000/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  # ── React frontend served by nginx (port 3000) ────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: mindclassify-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    networks:
+      - mindclassify-net
+    depends_on:
+      backend:
+        condition: service_healthy
+
+# ── Volumes & Networks ────────────────────────────────────────────────────────
+volumes:
+  mongo_data:
+    name: mindclassify-mongo-data
+
+networks:
+  mindclassify-net:
+    name: mindclassify-net
+    driver: bridge

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-cream); }
+  body { padding: 26px 30px; font-family: var(--font-sans); }
+  .row { display: flex; gap: 26px; }
+  .tile {
+    flex: 1; background: var(--color-paper); border-radius: var(--r-md);
+    padding: 14px; text-align: center; min-height: 80px;
+    border: 1px solid var(--color-line-soft);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .tile .name { font-size: 12px; font-weight: 700; color: var(--color-ink); }
+  .tile .v    { font-family: var(--font-mono); font-size: 10.5px; color: var(--color-ink-3); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="tile" style="box-shadow: var(--shadow-xs)">
+      <div class="name">xs</div><div class="v">0 1 2 / 0.05</div>
+    </div>
+    <div class="tile" style="box-shadow: var(--shadow-sm)">
+      <div class="name">sm <span style="opacity:0.6">· resting card</span></div><div class="v">0 2 6 / 0.06</div>
+    </div>
+    <div class="tile" style="box-shadow: var(--shadow-md)">
+      <div class="name">md <span style="opacity:0.6">· hover</span></div><div class="v">0 6 18 / 0.08</div>
+    </div>
+    <div class="tile" style="box-shadow: var(--shadow-lg)">
+      <div class="name">lg <span style="opacity:0.6">· modal</span></div><div class="v">0 18 40 / 0.10</div>
+    </div>
+    <div class="tile" style="box-shadow: var(--shadow-cozy)">
+      <div class="name">cozy <span style="opacity:0.6">· hero</span></div><div class="v">0 20 50 / 0.16</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-cream); }
+  body { padding: 20px 24px; font-family: var(--font-sans); }
+  .row { display: flex; gap: 12px; }
+  .ink {
+    flex: 1; height: 100px; border-radius: var(--r-md);
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 10px 12px; box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-line);
+  }
+  .ink .label { font-size: var(--fs-13); font-weight: 600; }
+  .ink .hex { font-size: var(--fs-12); font-family: var(--font-mono); opacity: 0.7; }
+  .ink .demo { font-size: 22px; font-family: var(--font-serif); font-weight: 600; letter-spacing: -0.02em; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="ink" style="background:var(--color-paper); color:var(--color-ink)">
+      <div class="label">Ink</div>
+      <div class="demo">Aa</div>
+      <div class="hex">#3C2E22</div>
+    </div>
+    <div class="ink" style="background:var(--color-paper); color:var(--color-ink-2)">
+      <div class="label">Ink 2</div>
+      <div class="demo">Aa</div>
+      <div class="hex">#6B5446</div>
+    </div>
+    <div class="ink" style="background:var(--color-paper); color:var(--color-ink-3)">
+      <div class="label">Ink 3</div>
+      <div class="demo">Aa</div>
+      <div class="hex">#9C8676</div>
+    </div>
+    <div class="ink" style="background:var(--color-paper); color:var(--color-ink-4)">
+      <div class="label">Ink 4</div>
+      <div class="demo">Aa</div>
+      <div class="hex">#C7B49E</div>
+    </div>
+    <div class="ink" style="background:var(--color-honey); color:white">
+      <div class="label">Honey</div>
+      <div class="demo">Aa</div>
+      <div class="hex">#D97706</div>
+    </div>
+    <div class="ink" style="background:var(--color-honey-ink); color:white">
+      <div class="label">Honey ink</div>
+      <div class="demo">Aa</div>
+      <div class="hex">#92400E</div>
+    </div>
+  </div>
+</body>
+</html>

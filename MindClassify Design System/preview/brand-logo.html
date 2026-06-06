@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-cream); }
+  body { padding: 24px 30px; font-family: var(--font-sans); display: flex; align-items: center; gap: 28px; }
+
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .mark {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--color-honey);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .word { font-family: var(--font-serif); font-weight: 700; font-size: 30px; letter-spacing: -0.025em; color: var(--color-ink); line-height: 1; }
+  .tag  { font-family: var(--font-mono); font-size: 10.5px; color: var(--color-honey-ink); padding: 3px 9px; background: var(--color-honey-soft); border-radius: 999px; align-self: center; }
+
+  .divider { width: 1px; align-self: stretch; background: var(--color-line); }
+
+  .quill { display: flex; align-items: center; gap: 12px; }
+  .quill-mark {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--color-honey-soft);
+    border: 1px solid var(--color-diary-line);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quill small {
+    font-size: 11px; color: var(--color-ink-3);
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    display: block;
+  }
+  .quill .role { color: var(--color-diary-accent); font-family: var(--font-serif); font-style: italic; font-size: 14px; font-weight: 500; }
+</style>
+</head>
+<body>
+
+  <div class="logo">
+    <!-- Wordmark glyph: stylised open notebook / page-fold in cream over honey -->
+    <div class="mark" aria-label="MindClassify mark">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- two soft curved page strokes -->
+        <path d="M5 19 Q5 7 13 7 Q13 13 13 19 Z" fill="#FFFCF6"/>
+        <path d="M21 19 Q21 7 13 7 Q13 13 13 19 Z" fill="#FFFCF6" opacity="0.85"/>
+        <!-- spine -->
+        <rect x="12.4" y="7" width="1.2" height="12" rx="0.6" fill="var(--color-honey)"/>
+      </svg>
+    </div>
+    <span class="word">MindClassify</span>
+    <span class="tag">NLP</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="quill">
+    <!-- Companion mark: minimal feather stroke -->
+    <div class="quill-mark" aria-label="Diary companion mark">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-diary-accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.5 3.5c-7 1-12 6-13.5 13L4 20"/>
+        <path d="M20.5 3.5c-3 7-7.5 10-13.5 11"/>
+        <path d="M11.5 12.5l4.5-4.5"/>
+      </svg>
+    </div>
+    <div>
+      <small>Companion mark</small>
+      <div class="role">the diary that writes back</div>
+    </div>
+  </div>
+
+</body>
+</html>

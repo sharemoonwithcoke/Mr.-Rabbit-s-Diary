@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--color-cream); }
+  body { padding: 20px 24px; }
+  .row { display: flex; gap: 12px; align-items: stretch; }
+  .swatch {
+    flex: 1;
+    height: 100px;
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px 12px;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+  }
+  .swatch .name { font-size: var(--fs-13); font-weight: 600; }
+  .swatch .hex  { font-size: var(--fs-12); color: var(--color-ink-3); font-family: var(--font-mono); letter-spacing: -0.02em; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="swatch" style="background: var(--color-cream)">
+      <div class="name">Cream</div><div class="hex">#FBF6EC</div>
+    </div>
+    <div class="swatch" style="background: var(--color-paper)">
+      <div class="name">Paper</div><div class="hex">#FFFCF6</div>
+    </div>
+    <div class="swatch" style="background: var(--color-paper-warm)">
+      <div class="name">Paper warm</div><div class="hex">#FDF8EF</div>
+    </div>
+    <div class="swatch" style="background: var(--color-paper-deep)">
+      <div class="name">Paper deep</div><div class="hex">#F5EBDA</div>
+    </div>
+    <div class="swatch" style="background: var(--color-honey-soft)">
+      <div class="name">Honey soft</div><div class="hex">#FDF1DC</div>
+    </div>
+  </div>
+</body>
+</html>
